@@ -5,7 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.ColumnSpan="3" Name="title" Content="Space Flights Management Tool" FontSize="48px" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+        <ListView Grid.Row="1" Grid.ColumnSpan="3" Name="flights" BorderThickness="0"></ListView>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="search" Text="Search for flights"></TextBox>
+        <Button Grid.Row="2" Grid.Column="0" Name="deploy" Content="Deploy flight" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Button>
+        <Button Grid.Row="2" Grid.Column="2" Name="cancel" Content="Cancel selected flight" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Button>
     </Grid>
 </Window>
