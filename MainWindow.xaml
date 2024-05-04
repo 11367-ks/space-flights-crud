@@ -19,7 +19,7 @@
         <Label Grid.Row="0" Grid.ColumnSpan="3" Name="title" Content="Space Flights Management Tool" FontSize="48px" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
         <ListView Grid.Row="1" Grid.ColumnSpan="3" Name="flights" BorderThickness="0"></ListView>
         <TextBox Grid.Row="2" Grid.Column="1" Name="search" Text="Search for flights" FontSize="18"></TextBox>
-        <Button Grid.Row="2" Grid.Column="0" Name="deploy" Content="Deploy flight" FontSize="18px" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Button>
+        <Button Grid.Row="2" Grid.Column="0" Name="deploy" Content="Deploy flight" FontSize="18px" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="deploy_Click"></Button>
         <Button Grid.Row="2" Grid.Column="2" Name="cancel" Content="Modify selected flight" FontSize="18px" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Button>
     </Grid>
 </Window>

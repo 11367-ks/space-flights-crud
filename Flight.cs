@@ -39,8 +39,8 @@ namespace space_flights_crud
         /// <summary>
         /// A list of waypoints with their corresponding arrival times.
         /// </summary>
-        [BsonElement("waypoints"), BsonRepresentation(BsonType.Array)]
-        public List<Waypoint> Waypoints { get; set; }
+        [BsonElement("waypoints")]
+        public List<Waypoint> Waypoints { get; set; } = new List<Waypoint>();
     }
 
     public class Waypoint
@@ -49,7 +49,7 @@ namespace space_flights_crud
         /// The name of the waypoint.
         /// </summary>
         [BsonElement("name"), BsonRepresentation(BsonType.String)]
-        public string Name { get; set; }
+        public string Destination { get; set; }
 
         /// <summary>
         /// The arrival time at the waypoint.
