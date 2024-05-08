@@ -50,11 +50,5 @@ namespace space_flights_crud
         /// </summary>
         [BsonElement("name"), BsonRepresentation(BsonType.String)]
         public string Destination { get; set; }
-
-        /// <summary>
-        /// The arrival time at the waypoint.
-        /// </summary>
-        [BsonElement("arrival"), BsonRepresentation(BsonType.DateTime)]
-        public DateTime Arrival { get; set; }
     }
 }

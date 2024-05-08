@@ -29,10 +29,21 @@ namespace space_flights_crud
             flight.Category = int.Parse(input_category.Text);
             flight.From = input_from.Text;
             flight.Departure = DateTime.Parse(input_departure.Text);
-            Waypoint waypoint = new Waypoint();
-            waypoint.Destination = "Test";
-            waypoint.Arrival = DateTime.Now;
-            flight.Waypoints.Add(waypoint);
+            List<char> charBuffer = new List<char>();
+            foreach (char i in input_waypoints.Text)
+            {
+                if (i == ',')
+                {
+                    Waypoint tmpwp = new Waypoint();
+                    tmpwp.Destination = new string(charBuffer.ToArray());
+                    flight.Waypoints.Add(tmpwp);
+                    charBuffer.Clear();
+                }
+                else
+                {
+                    charBuffer.Add(i);
+                }
+            }
             flightsCollection.InsertOne(flight);
         }
 

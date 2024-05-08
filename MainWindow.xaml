@@ -14,12 +14,14 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.ColumnSpan="3" Name="title" Content="Space Flights Management Tool" FontSize="48px" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
-        <ListView Grid.Row="1" Grid.ColumnSpan="3" Name="flights" BorderThickness="0"></ListView>
-        <TextBox Grid.Row="2" Grid.Column="1" Name="search" Text="Search for flights" FontSize="18"></TextBox>
+        <Label Grid.Row="0" Grid.ColumnSpan="4" Name="title" Content="Space Flights Management Tool" FontSize="48px" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+        <ListView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Name="flights" BorderThickness="0" PreviewMouseLeftButtonUp="flights_PreviewMouseLeftButtonUp"></ListView>
+        <ListView Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Name="details" BorderThickness="0"></ListView>
         <Button Grid.Row="2" Grid.Column="0" Name="schedule" Content="Schedule new flight" FontSize="18px" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="schedule_Click"></Button>
-        <Button Grid.Row="2" Grid.Column="2" Name="cancel" Content="Modify selected flight" FontSize="18px" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Button>
+        <Button Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Name="refresh" Content="Refresh the flight list" FontSize="18px" Click="refresh_Click"></Button>
+        <Button Grid.Row="2" Grid.Column="3" Name="cancel" Content="Modify selected flight" FontSize="18px" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="modify_Click"></Button>
     </Grid>
 </Window>
