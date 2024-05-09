@@ -39,7 +39,46 @@ namespace space_flights_crud
             input_category.Text = flight.Category.ToString();
             input_from.Text = flight.From;
             input_departure.Text = flight.Departure.ToString();
+            input_waypoints.Text = string.Join(",", flight.Waypoints.Select(wp => wp.Destination));
+        }
 
+        private async void UpdateButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var updatedFlight = new Flight
+                {
+                    FlightId = id,
+                    ShipModel = input_ship_model.Text,
+                    Category = int.Parse(input_category.Text),
+                    From = input_from.Text,
+                    Departure = DateTime.Parse(input_departure.Text),
+                    Waypoints = input_waypoints.Text.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                        .Select(dest => new Waypoint { Destination = dest }).ToList()
+                };
+
+                var filter = Builders<Flight>.Filter.Eq("_id", new ObjectId(id));
+                var result = await flightsCollection.ReplaceOneAsync(filter, updatedFlight);
+
+                if (result.IsAcknowledged && result.MatchedCount > 0)
+                {
+                    MessageBox.Show("Flight data updated successfully.");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to update flight data.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+        public async void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var filter = Builders<Flight>.Filter.Eq("_id", new ObjectId(id));
+            await flightsCollection.DeleteOneAsync(filter);
         }
     }
 }

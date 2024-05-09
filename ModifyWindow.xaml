@@ -38,7 +38,7 @@
         <TextBox Grid.Row="5" Grid.Column="1" Name="input_waypoints"></TextBox>
         <!--TODO: Improve waypoint adding by creating a list-->
 
-        <Button Grid.Row="6" Grid.Column="0" Content="Update flight" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="18px"></Button>
-        <Button Grid.Row="6" Grid.Column="1" Content="Delete flight" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="18px"></Button>
+        <Button Grid.Row="6" Grid.Column="0" Content="Update flight" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="18px" Click="UpdateButton_Click"></Button>
+        <Button Grid.Row="6" Grid.Column="1" Content="Delete flight" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="18px" Click="DeleteButton_Click"></Button>
     </Grid>
 </Window>
