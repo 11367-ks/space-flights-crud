@@ -11,7 +11,7 @@ namespace space_flights_crud
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string selectedID;
+        public string selectedID;
         private IMongoCollection<Flight> flightsCollection;
 
         public MainWindow()
@@ -80,7 +80,7 @@ namespace space_flights_crud
 
         private void modify_Click(object sender, RoutedEventArgs e)
         {
-            ModifyWindow modifyWindow = new ModifyWindow();
+            ModifyWindow modifyWindow = new ModifyWindow(selectedID);
             modifyWindow.Show();
         }
     }
